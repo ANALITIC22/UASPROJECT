@@ -11,6 +11,7 @@
  <link rel="stylesheet" href="assets/css/animations.css">
  <link rel="stylesheet" href="assets/css/layout.css">
  <link rel="stylesheet" href="assets/css/components.css">
+ <link rel="stylesheet" href="assets/css/responsive.css">
 
  <!-- Módulos CSS -->
  <link rel="stylesheet" href="src/modules/dashboard/dashboard.css">
@@ -119,13 +120,23 @@
 <div id="app-error">
  <div class="error-icon"></div>
  <div class="error-msg">No se pudo conectar con Supabase.</div>
- <div class="error-sub">Verifica tu conexión a internet e intenta recargar la página.</div>
+ <div class="error-sub">Verifica tu conexion a internet e intenta recargar la pagina.</div>
 </div>
 
 
+<!-- Hamburger Menu -->
+<button class="hamburger" id="hamburger-btn" aria-label="Menu">
+ <span></span>
+ <span></span>
+ <span></span>
+</button>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
 <!-- ════════════════════════════════════════════════════════
  APP SHELL — Sidebar + Content
-════════════════════════════════════════════════════════ -->
+═════════════════════════════════════════════════════════ -->
 <div class="app-shell">
 
  <!-- ══════════════════════════════════════════════════
@@ -641,8 +652,8 @@
  const btnClear = document.getElementById('btn-clear-client');
  if (badge && btnClear) {
  if (clientName) {
- const short = clientName.length > 35 ? clientName.substring(0,35) + '…' : clientName;
- badge.textContent = '' + short;
+ const short = clientName.length > 35 ? clientName.substring(0,35) + '...' : clientName;
+ badge.textContent = short;
  badge.style.display = 'inline';
  btnClear.style.display = 'inline';
  } else {
@@ -651,6 +662,53 @@
  }
  }
  };
+})();
+</script>
+
+<script>
+/* ── Hamburger Menu Mobile ── */
+(function() {
+ const hamburger = document.getElementById('hamburger-btn');
+ const sidebar = document.querySelector('.sidebar');
+ const overlay = document.getElementById('sidebar-overlay');
+
+ if (hamburger && sidebar && overlay) {
+   hamburger.addEventListener('click', function() {
+     this.classList.toggle('active');
+     sidebar.classList.toggle('open');
+     overlay.classList.toggle('active');
+     document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+   });
+
+   overlay.addEventListener('click', function() {
+     hamburger.classList.remove('active');
+     sidebar.classList.remove('open');
+     overlay.classList.remove('active');
+     document.body.style.overflow = '';
+   });
+
+   // Close on nav button click (mobile)
+   sidebar.querySelectorAll('.nav__btn').forEach(btn => {
+     btn.addEventListener('click', function() {
+       if (window.innerWidth <= 900) {
+         hamburger.classList.remove('active');
+         sidebar.classList.remove('open');
+         overlay.classList.remove('active');
+         document.body.style.overflow = '';
+       }
+     });
+   });
+ }
+
+ // Handle resize
+ window.addEventListener('resize', function() {
+   if (window.innerWidth > 900 && sidebar && sidebar.classList.contains('open')) {
+     hamburger.classList.remove('active');
+     sidebar.classList.remove('open');
+     overlay.classList.remove('active');
+     document.body.style.overflow = '';
+   }
+ });
 })();
 </script>
 

@@ -983,10 +983,196 @@ body::before {
 /* ═══════════════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════════════ */
-@media (max-width: 640px) {
-  .header-executive { flex-direction: column; align-items: flex-start; }
-  .header-meta { text-align: left; }
-  .portal { padding: 0 16px 60px; }
-  .top-bar { margin: 0 -16px 0; }
-  .kpi-value { font-size: 28px; }
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .kpi-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .charts-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .exec-table {
+    font-size: 12px;
+  }
+}
+
+/* Mobile Landscape (max-width: 768px) */
+@media (max-width: 768px) {
+  .portal {
+    padding: 0 16px 40px;
+  }
+  
+  .top-bar {
+    margin: 0 -16px 0;
+    padding: 10px 16px;
+  }
+  
+  .header-executive {
+    padding: 24px 16px;
+  }
+  
+  .header-brand h1 {
+    font-size: 24px;
+  }
+  
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .kpi-card {
+    padding: 16px;
+  }
+  
+  .kpi-value {
+    font-size: 28px;
+  }
+  
+  .kpi-label {
+    font-size: 11px;
+  }
+  
+  .filter-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-row {
+    flex-direction: column;
+  }
+  
+  .filter-row label,
+  .filter-row select,
+  .filter-row input {
+    width: 100%;
+  }
+  
+  .exec-table {
+    font-size: 11px;
+  }
+  
+  .exec-table th,
+  .exec-table td {
+    padding: 8px 10px;
+  }
+  
+  .tabs-nav {
+    flex-wrap: wrap;
+  }
+  
+  .tab-btn {
+    flex: 1;
+    min-width: calc(50% - 8px);
+    text-align: center;
+  }
+}
+
+/* Mobile Portrait (max-width: 480px) */
+@media (max-width: 480px) {
+  .portal {
+    padding: 0 12px 30px;
+  }
+  
+  .top-bar {
+    font-size: 11px;
+    padding: 8px 12px;
+  }
+  
+  .header-executive {
+    padding: 20px 12px;
+  }
+  
+  .header-brand h1 {
+    font-size: 20px;
+  }
+  
+  .header-brand .sub {
+    font-size: 12px;
+  }
+  
+  .kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .kpi-card {
+    padding: 14px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .kpi-value {
+    font-size: 24px;
+  }
+  
+  .kpi-label {
+    font-size: 10px;
+    margin-bottom: 0;
+  }
+  
+  .coverage-banner {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+  
+  .exec-table {
+    font-size: 10px;
+    min-width: 100%;
+  }
+  
+  .exec-table th,
+  .exec-table td {
+    padding: 6px 8px;
+  }
+  
+  .action-bar {
+    flex-direction: column;
+  }
+  
+  .action-bar .btn {
+    width: 100%;
+  }
+  
+  .tab-btn {
+    font-size: 11px;
+    padding: 10px 8px;
+  }
+  
+  .portal-footer {
+    font-size: 11px;
+    padding: 16px 12px;
+  }
+}
+
+/* Print */
+@media print {
+  @page { margin: 18mm 16mm; size: A4 portrait; }
+  body { background: #fff; color: #000; }
+  body::before { display: none; }
+  .top-bar { background: #031F30 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .portal { padding: 0; max-width: none; }
+  .filter-toolbar, .action-bar, .tabs-nav, .portal-footer { display: none !important; }
+  .tab-panel { display: block !important; page-break-inside: avoid; }
+  .tabs-wrapper { margin-bottom: 0; }
+  .header-executive { border-bottom: 2px solid #031F30; }
+  .kpi-card, .chart-card, .table-block, .coverage-banner {
+    border: 1px solid #42638C !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  .coverage-banner { opacity: 1 !important; transform: none !important; }
+  .kpi-grid, .charts-row, .chart-card, .table-block { page-break-inside: avoid; }
+  .exec-table thead { display: table-header-group; }
+  .exec-table th {
+    background: #F3F5F8 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .chart-wrapper, .chart-empty { height: 220px; }
+  .exec-table td, .exec-table th { font-size: 10px; padding: 7px 10px; }
+  .kpi-card::before { transform: scaleX(1); }
 }

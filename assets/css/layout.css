@@ -364,3 +364,109 @@
   gap: 2px;
   overflow: hidden;
 }
+
+/* ══════════════════════════════════════════════════════════
+   HAMBURGER MENU
+══════════════════════════════════════════════════════════ */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 300;
+  width: 40px;
+  height: 40px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--sec-light-blue);
+  border-radius: 2px;
+  transition: all 300ms var(--ease-out);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Sidebar overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 199;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE STYLES
+══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 300ms var(--ease-out);
+    width: 260px;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .content-area {
+    margin-left: 0;
+  }
+  
+  .sidebar .sidebar__logo { font-size: 20px; }
+  .sidebar .sidebar__tagline,
+  .sidebar .sidebar__live,
+  .sidebar .sidebar__section-label,
+  .sidebar .nav__btn-text,
+  .sidebar .nav__btn-badge,
+  .sidebar .sidebar__version { display: block; }
+  .sidebar .nav__btn { justify-content: flex-start; padding: 12px 18px; }
+  .sidebar .sidebar__brand { padding: 22px 18px 16px; }
+  
+  #client-filter-bar {
+    padding: 10px 16px 10px 60px;
+    flex-wrap: wrap;
+  }
+  
+  .grid-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-pilots {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-clients {
+    grid-template-columns: 1fr;
+  }
+}
