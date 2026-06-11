@@ -670,21 +670,12 @@
 (function() {
  const hamburger = document.getElementById('hamburger-btn');
  const sidebar = document.querySelector('.sidebar');
- const overlay = document.getElementById('sidebar-overlay');
 
- if (hamburger && sidebar && overlay) {
+ if (hamburger && sidebar) {
    hamburger.addEventListener('click', function() {
      this.classList.toggle('active');
      sidebar.classList.toggle('open');
-     overlay.classList.toggle('active');
      document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
-   });
-
-   overlay.addEventListener('click', function() {
-     hamburger.classList.remove('active');
-     sidebar.classList.remove('open');
-     overlay.classList.remove('active');
-     document.body.style.overflow = '';
    });
 
    // Close on nav button click (mobile)
@@ -693,7 +684,6 @@
        if (window.innerWidth <= 900) {
          hamburger.classList.remove('active');
          sidebar.classList.remove('open');
-         overlay.classList.remove('active');
          document.body.style.overflow = '';
        }
      });
@@ -705,7 +695,6 @@
    if (window.innerWidth > 900 && sidebar && sidebar.classList.contains('open')) {
      hamburger.classList.remove('active');
      sidebar.classList.remove('open');
-     overlay.classList.remove('active');
      document.body.style.overflow = '';
    }
  });
