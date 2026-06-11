@@ -324,49 +324,15 @@
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
 
 /* ══════════════════════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE - TABLET & DESKTOP
 ══════════════════════════════════════════════════════════ */
 @media (max-width: 1024px) {
   .grid-charts { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 900px) {
-  :root { --sidebar-w: 60px; }
-  .sidebar__logo { font-size: 14px; }
-  .sidebar__tagline,
-  .sidebar__live,
-  .sidebar__section-label,
-  .nav__btn-text,
-  .nav__btn-badge,
-  .sidebar__version { display: none; }
-  .nav__btn { justify-content: center; padding: 12px; }
-  .sidebar__brand { padding: 14px 8px; text-align: center; }
-}
-
-@media (max-width: 768px) {
-  .section { padding: var(--space-md); }
-  .grid-pilots { grid-template-columns: 1fr; }
-  .grid-stats { grid-template-columns: repeat(2, 1fr); }
-  .grid-3 { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 480px) {
-  .grid-stats { grid-template-columns: 1fr; }
-  .grid-3 { grid-template-columns: 1fr; }
-  .section-header { flex-direction: column; align-items: flex-start; }
-}
-
-/* ── Legacy nav ── */
-.nav {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  overflow: hidden;
-}
-
 /* ══════════════════════════════════════════════════════════
-   HAMBURGER MENU
+   HAMBURGER MENU BUTTON
 ══════════════════════════════════════════════════════════ */
 .hamburger {
   display: none;
@@ -374,8 +340,8 @@
   top: 12px;
   left: 12px;
   z-index: 300;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -384,7 +350,6 @@
   justify-content: center;
   flex-direction: column;
   gap: 5px;
-  padding: 10px;
 }
 
 .hamburger span {
@@ -422,13 +387,15 @@
 }
 
 /* ══════════════════════════════════════════════════════════
-   MOBILE STYLES
+   MOBILE - HAMBURGER MENU VISIBLE
 ══════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
+  /* Show hamburger */
   .hamburger {
     display: flex;
   }
   
+  /* Sidebar hidden by default, slides in */
   .sidebar {
     transform: translateX(-100%);
     transition: transform 300ms var(--ease-out);
@@ -439,25 +406,36 @@
     transform: translateX(0);
   }
   
+  /* Content takes full width */
   .content-area {
     margin-left: 0;
   }
   
+  /* When sidebar is open, show all elements */
   .sidebar .sidebar__logo { font-size: 20px; }
   .sidebar .sidebar__tagline,
   .sidebar .sidebar__live,
   .sidebar .sidebar__section-label,
   .sidebar .nav__btn-text,
   .sidebar .nav__btn-badge,
-  .sidebar .sidebar__version { display: block; }
-  .sidebar .nav__btn { justify-content: flex-start; padding: 12px 18px; }
-  .sidebar .sidebar__brand { padding: 22px 18px 16px; }
+  .sidebar .sidebar__version { 
+    display: block; 
+  }
+  .sidebar .nav__btn { 
+    justify-content: flex-start; 
+    padding: 12px 18px; 
+  }
+  .sidebar .sidebar__brand { 
+    padding: 22px 18px 16px; 
+  }
   
+  /* Topbar with left padding for hamburger */
   #client-filter-bar {
-    padding: 10px 16px 10px 60px;
+    padding: 10px 16px 10px 64px;
     flex-wrap: wrap;
   }
   
+  /* Grids */
   .grid-stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -469,4 +447,53 @@
   .grid-clients {
     grid-template-columns: 1fr;
   }
+  
+  /* Sections */
+  .section {
+    padding: var(--space-md);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE PORTRAIT
+══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .grid-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  
+  .section-header__title {
+    font-size: 16px;
+  }
+  
+  .stat-card__value {
+    font-size: 24px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SMALL MOBILE
+══════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .grid-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .section-header__controls {
+    width: 100%;
+  }
+}
+
+/* ── Legacy nav ── */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
 }
