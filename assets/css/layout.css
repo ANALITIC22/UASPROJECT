@@ -339,7 +339,7 @@
   position: fixed;
   top: 12px;
   left: 12px;
-  z-index: 300;
+  z-index: 260;
   width: 44px;
   height: 44px;
   background: var(--panel);
@@ -378,8 +378,8 @@
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 199;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 198;
 }
 
 .sidebar-overlay.active {
@@ -400,6 +400,7 @@
     transform: translateX(-100%);
     transition: transform 300ms var(--ease-out);
     width: 260px;
+    z-index: 280;
   }
   
   .sidebar.open {
@@ -419,14 +420,23 @@
   .sidebar .nav__btn-text,
   .sidebar .nav__btn-badge,
   .sidebar .sidebar__version { 
-    display: block; 
+    display: block !important; 
   }
   .sidebar .nav__btn { 
     justify-content: flex-start; 
-    padding: 12px 18px; 
+    padding: 14px 20px;
+    pointer-events: auto;
+    border-bottom: 1px solid rgba(14, 61, 92, 0.3);
+  }
+  .sidebar .nav__btn:last-child {
+    border-bottom: none;
   }
   .sidebar .sidebar__brand { 
-    padding: 22px 18px 16px; 
+    padding: 24px 20px 18px;
+    border-bottom: 2px solid var(--border);
+  }
+  .sidebar .sidebar__nav {
+    padding: 8px 0;
   }
   
   /* Topbar with left padding for hamburger */
