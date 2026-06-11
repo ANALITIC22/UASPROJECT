@@ -9302,7 +9302,7 @@
     {
       "id": "PLA-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0147",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "aeronave": "DRONE AVATA 2",
@@ -9314,7 +9314,7 @@
     {
       "id": "PLA-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0148",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "aeronave": "DRONE AVATA 2",
@@ -9326,7 +9326,7 @@
     {
       "id": "PLA-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0149",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "aeronave": "DRONE AVATA 2",
@@ -9338,7 +9338,7 @@
     {
       "id": "PLA-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0150",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "aeronave": "DRONE AVATA 2",
@@ -9350,7 +9350,7 @@
     {
       "id": "PLA-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0151",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "aeronave": "DRONE AVATA 2",
@@ -9362,7 +9362,7 @@
     {
       "id": "PLA-CENTRO_COMERCIAL_SAN-HAROLD_RICARDO_MARTI-0152",
       "piloto": "HAROLD RICARDO MARTINEZ CRUZ",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "aeronave": "DRONE AVATA 2",
@@ -9374,7 +9374,7 @@
     {
       "id": "PLA-CENTRO_COMERCIAL_SAN-LUIS_EDUARDO_TOBON_R-0153",
       "piloto": "LUIS EDUARDO TOBON RUIZ",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "aeronave": "DRONE AVATA 2",
@@ -9386,7 +9386,7 @@
     {
       "id": "PLA-CENTRO_COMERCIAL_SAN-LUIS_EDUARDO_TOBON_R-0154",
       "piloto": "LUIS EDUARDO TOBON RUIZ",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1",
       "aeronave": "DRONE AVATA 2",
@@ -11792,7 +11792,7 @@
     {
       "id": "RIE-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0144",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "nivel_riesgo": "25%"
@@ -11800,7 +11800,7 @@
     {
       "id": "RIE-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0145",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "nivel_riesgo": "25%"
@@ -11808,7 +11808,7 @@
     {
       "id": "RIE-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0146",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "nivel_riesgo": "25%"
@@ -11816,7 +11816,7 @@
     {
       "id": "RIE-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0147",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "nivel_riesgo": "25%"
@@ -11824,7 +11824,7 @@
     {
       "id": "RIE-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0148",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "nivel_riesgo": "25%"
@@ -11832,7 +11832,7 @@
     {
       "id": "RIE-CENTRO_COMERCIAL_SAN-HAROLD_RICARDO_MARTI-0149",
       "piloto": "HAROLD RICARDO MARTINEZ CRUZ",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "nivel_riesgo": "25%"
@@ -11840,7 +11840,7 @@
     {
       "id": "RIE-CENTRO_COMERCIAL_SAN-LUIS_EDUARDO_TOBON_R-0150",
       "piloto": "LUIS EDUARDO TOBON RUIZ",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16",
       "nivel_riesgo": "25%"
@@ -11848,7 +11848,7 @@
     {
       "id": "RIE-CENTRO_COMERCIAL_SAN-LUIS_EDUARDO_TOBON_R-0151",
       "piloto": "LUIS EDUARDO TOBON RUIZ",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "proceso_uas": "UAS - CC SANTAFE",
       "vuelo_num": "1",
       "nivel_riesgo": "25%"
@@ -12746,28 +12746,28 @@
     {
       "id": "MNT-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0009",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "aeronave": "DRONE AVATA 2",
       "observaciones": "Quedan elementos del servicio en la oficina administrativa como son:\n*  01 Dron avatar 2\n* 01 protector gymbal\n* 01 control dji Avata 2 \n* 01 googles FPV\n* 01 joystick FPV\n* 01 Hub de carga\n* 08 baterías\n* 01 multitoma\n* 04 hélices puestas\n* 02 hélices nuevas\n* 01 llave Bristol\n* 01 computador portátil\n* 01 cable USB\n* 02 cable tipo c\n* 02 cargador computador portátil\n* 01 cargador completo celular\n* 01 celular corporativo\n* 04 conos rojos \n* 01 landing pad."
     },
     {
       "id": "MNT-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0010",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "aeronave": "DRONE AVATA 2",
       "observaciones": "Quedan elementos del servicio en la oficina administrativa como son:\n*  01 Dron avatar 2\n* 01 protector gymbal\n* 01 control dji Avata 2 \n* 01 googles FPV\n* 01 joystick FPV\n* 01 Hub de carga\n* 08 baterías\n* 01 multitoma\n* 04 hélices puestas\n* 02 hélices nuevas\n* 01 llave Bristol\n* 01 computador portátil\n* 01 cable USB\n* 02 cable tipo c\n* 02 cargador computador portátil\n* 01 cargador completo celular\n* 01 celular corporativo\n* 04 conos rojos \n* 01 landing pad."
     },
     {
       "id": "MNT-CENTRO_COMERCIAL_SAN-ANDRES_FELIPE_BUSTOS-0011",
       "piloto": "ANDRES FELIPE BUSTOS ARROYO",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "aeronave": "DRONE AVATA 2",
       "observaciones": "Quedan elementos del servicio en la oficina administrativa como son:\n*  01 Dron avatar 2\n* 01 protector gymbal\n* 01 control dji Avata 2 \n* 01 googles FPV\n* 01 joystick FPV\n* 01 Hub de carga\n* 08 baterías\n* 01 multitoma\n* 04 hélices puestas\n* 02 hélices nuevas\n* 01 llave Bristol\n* 01 computador portátil\n* 01 cable USB\n* 02 cable tipo c\n* 02 cargador computador portátil\n* 01 cargador completo celular\n* 01 celular corporativo\n* 04 conos rojos \n* 01 landing pad."
     },
     {
       "id": "MNT-CENTRO_COMERCIAL_SAN-LUIS_EDUARDO_TOBON_R-0012",
       "piloto": "LUIS EDUARDO TOBON RUIZ",
-      "cuenta": "CENTRO COMERCIAL SANTA FE",
+      "cuenta": "CENTRO COMERCIAL SANTA FE.",
       "aeronave": "DRONE AVATA 2",
       "observaciones": "Se realiza mantenimiento preventivo sin novedad \n*  01 Dron avatar 2\n* 01 protector gymbal\n* 01 control dji Avata 2 \n* 01 googles FPV\n* 01 joystick FPV\n* 01 Hub de carga\n* 08 baterías\n* 01 multitoma\n* 04 hélices puestas\n* 02 hélices nuevas\n* 01 llave Bristol\n* 01 computador portátil\n* 01 cable USB\n* 02 cable tipo c\n* 02 cargador computador portátil\n* 01 cargador completo celular\n* 01 celular corporativo\n* 04 conos rojos \n* 01 landing pad."
     },

@@ -88,7 +88,7 @@ continuation: {
     'AVIACION NO TRIPULADA (UAS)':           { label: 'Aviación No Tripulada (UAS)',        icon: '🛸', color: '#22d3ee' },
     'C B HOTELES Y RESORTS S A':             { label: 'C B Hoteles y Resorts S.A.',          icon: '🏨', color: '#10b981' },
     'CASA DE CAMPO RESTREPO META':           { label: 'Casa de Campo Restrepo Meta',         icon: '🏡', color: '#f59e0b' },
-    'CENTRO COMERCIAL SANTA FE':             { label: 'Centro Comercial Santa Fe',           icon: '🏬', color: '#8b5cf6' },
+    'CENTRO COMERCIAL SANTA FE.':            { label: 'Centro Comercial Santa Fe',           icon: '🏬', color: '#8b5cf6' },
     'CLUB LA PRADERA DE POTOSI':             { label: 'Club La Pradera de Potosí',           icon: '⛳', color: '#ec4899' },
     'CONJUNTO CERRADO CASA DE CAMPO PH':     { label: 'Conjunto Cerrado Casa de Campo PH',  icon: '🏘️', color: '#3b82f6' },
     'CORPORACION CLUB PUERTO PENALISA':      { label: 'Corporación Club Puerto Peñalisa',   icon: '⚓', color: '#ef4444' },

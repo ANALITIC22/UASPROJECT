@@ -4,7 +4,7 @@
  * Módulo de solo lectura para la presentación ejecutiva del cliente.
  *
  * RESTRICCIÓN DE SEGURIDAD: Todas las consultas están filtradas
- * por .eq(field, CLIENT_ID). Inmutable y hardcodeado.
+ * por .eq(field, _getClientId()). Inmutable y hardcodeado.
  *
  * TABLAS (Supabase):
  *   bitacora      → GMB-F15 — historial de vuelos
@@ -17,28 +17,44 @@
 const ClientView = (() => {
 
   // ══════════════════════════════════════════════════════════════
-  // CONSTANTES DE SEGURIDAD — INMUTABLES — NO MODIFICAR
+  // _getClientId() — leído lazy en init(), NO al cargar el IIFE
   // ══════════════════════════════════════════════════════════════
-  const CLIENT_ID      = (typeof window !== 'undefined' && window.UASOPS_CLIENT_ID)
-                           ? window.UASOPS_CLIENT_ID
-                           : 'UAS - CASA DE CAMPO LA CALERA';
+  // BUG RAÍZ: el IIFE se ejecuta cuando el navegador parsea el <script src="clientView.js">,
+  // ANTES de que el <script> inline que define window.UASOPS_CLIENT_ID sea procesado.
+  // Solución: _getClientId() lee window.UASOPS_CLIENT_ID en tiempo de ejecución,
+  // no en tiempo de carga del módulo.
+  let _CLIENT_ID = null;
+  function _getClientId() {
+    if (!_CLIENT_ID) {
+      _CLIENT_ID = (window.UASOPS_CLIENT_ID && window.UASOPS_CLIENT_ID.trim())
+        ? window.UASOPS_CLIENT_ID.trim()
+        : null;
+      if (!_CLIENT_ID) {
+        console.error('[ClientView] window.UASOPS_CLIENT_ID no definido. Verifica el HTML.');
+      }
+    }
+    return _CLIENT_ID;
+  }
   const MINUTES_FACTOR = 35;
 
   // ── Configuración Supabase (desde config centralizada) ────────
   const SUPABASE_URL  = APP_CONFIG.supabase.url;
   const SUPABASE_ANON = APP_CONFIG.supabase.anon;
 
-  // ── Mapeo CLIENT_ID (nombre corto) → nombre completo de cuenta ──
+  // ── Mapeo _getClientId() (nombre corto) → nombre completo de cuenta ──
+  // Mapeo _getClientId() → cuenta(s) exacta(s) en Supabase.
+  // Parser normaliza: MAYÚSCULAS + sin acentos. Ej: PEÑALISA → PENALISA.
+  // Arrays para clientes con variantes en seed vs uploads (punto final).
   const CLIENT_ACCOUNT_MAP = {
-    'UAS - PENALISA':              'CORPORACION CLUB PUERTO PENALISA',
-    'UAS - CASA DE CAMPO RESTREPO':'CASA DE CAMPO RESTREPO META',
+    'UAS - PENALISA':               'CORPORACION CLUB PUERTO PENALISA',
+    'UAS - CASA DE CAMPO RESTREPO': 'CASA DE CAMPO RESTREPO META',
     'UAS - CASA DE CAMPO LA CALERA':'CONJUNTO CERRADO CASA DE CAMPO PH',
-    'UAS - MESA DE YEGUAS':        'CORPORACION MESA DE YEGUAS COUNTRY CLUB',
-    'UAS - MOBILE / BOGOTA':       'AVIACION NO TRIPULADA (UAS)',
-    'UAS - LA GRAN RESERVA':       'C B HOTELES Y RESORTS S A',
-    'UAS - GRUPO EXITO':           'C B HOTELES Y RESORTS S A',
-    'UAS - CC SANTAFE':            'CENTRO COMERCIAL SANTA FE',
-    'UAS - PRADERA DE POTOSI':     'CLUB LA PRADERA DE POTOSI',
+    'UAS - MESA DE YEGUAS':         'CORPORACION MESA DE YEGUAS COUNTRY CLUB',
+    'UAS - MOBILE / BOGOTA':        'AVIACION NO TRIPULADA (UAS)',
+    'UAS - LA GRAN RESERVA':        'C B HOTELES Y RESORTS S A',
+    'UAS - GRUPO EXITO':            'C B HOTELES Y RESORTS S A',
+    'UAS - CC SANTAFE':             ['CENTRO COMERCIAL SANTA FE.', 'CENTRO COMERCIAL SANTA FE'],
+    'UAS - PRADERA DE POTOSI':      'CLUB LA PRADERA DE POTOSI',
   };
 
   // ── Estado interno ──────────────────────────────────────────
@@ -90,19 +106,18 @@ const ClientView = (() => {
   // ══════════════════════════════════════════════════════════════
 
   async function _queryCollection(tableName) {
-    const fullAccountName = CLIENT_ACCOUNT_MAP[CLIENT_ID] || CLIENT_ID;
-    const seenIds = new Set();
+    // El parser escribe en 'cuenta' el Account normalizado (MAYÚSCULAS, sin acentos).
+    // CLIENT_ACCOUNT_MAP puede ser string o array para clientes con variantes históricas.
+    const mapped = CLIENT_ACCOUNT_MAP[_getClientId()];
+    const accountNames = Array.isArray(mapped)
+      ? mapped
+      : [(mapped || _getClientId())];
+
+    const seenIds    = new Set();
     const allResults = [];
 
-    // 1. Buscar por "cuenta" con el nombre completo del cliente
-    await _queryField(tableName, 'cuenta', fullAccountName, seenIds, allResults);
-
-    // 2. Buscar por "proceso_uas" con el nombre corto (CLIENT_ID)
-    await _queryField(tableName, 'proceso_uas', CLIENT_ID, seenIds, allResults);
-
-    // 3. Buscar por "proceso_uas" con el nombre completo (bitacora lo usa completo)
-    if (fullAccountName !== CLIENT_ID) {
-      await _queryField(tableName, 'proceso_uas', fullAccountName, seenIds, allResults);
+    for (const name of accountNames) {
+      await _queryField(tableName, 'cuenta', name, seenIds, allResults);
     }
 
     return allResults;
