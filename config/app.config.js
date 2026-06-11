@@ -41,11 +41,11 @@ continuation: {
   // ── Tipos de formulario reconocidos ───────────────────────────
   // key: identificador interno  |  match: fragmento del campo "Type" en el CSV
   formTypes: {
-    bitacora:      { key: 'bitacora',     match: 'BITACORA',      label: 'Bitácora de Vuelo',         icon: '📋', color: '#22d3ee' },
-    misiones:      { key: 'misiones',     match: 'MISION',        label: 'Informe de Misión Cumplida', icon: '🎯', color: '#10b981' },
-    planeamiento:  { key: 'planeamiento', match: 'PLANEAMIENTO',  label: 'Planeamiento de la Misión',  icon: '🗺️', color: '#f59e0b' },
-    riesgo:        { key: 'riesgo',       match: 'RIESGO',        label: 'Análisis y Evaluación Riesgo',icon: '⚠️', color: '#eab308' },
-    mantenimiento: { key: 'mantenimiento',match: 'MANTENIMIENTO', label: 'Mantenimiento Preventivo UAS',icon: '🔧', color: '#8b5cf6' },
+    bitacora:      { key: 'bitacora',     match: 'BITACORA',      label: 'Bitacora de Vuelo',         icon: 'LOG', color: '#22d3ee' },
+    misiones:      { key: 'misiones',     match: 'MISION',        label: 'Informe de Mision Cumplida', icon: 'MISSION', color: '#10b981' },
+    planeamiento:  { key: 'planeamiento', match: 'PLANEAMIENTO',  label: 'Planeamiento de la Mision',  icon: 'PLAN', color: '#f59e0b' },
+    riesgo:        { key: 'riesgo',       match: 'RIESGO',        label: 'Analisis y Evaluacion Riesgo',icon: 'RISK', color: '#eab308' },
+    mantenimiento: { key: 'mantenimiento',match: 'MANTENIMIENTO', label: 'Mantenimiento Preventivo UAS',icon: 'MAINT', color: '#8b5cf6' },
   },
 
   // ── Columnas esperadas en los CSV ─────────────────────────────
@@ -97,14 +97,27 @@ continuation: {
 
   // ── Navegación — secciones de la aplicación ───────────────────
   navigation: [
-    { id: 'dashboard',     label: 'Dashboard General',       icon: '📊' },
-    { id: 'pilotos',       label: 'Pilotos & Horas',         icon: '👨‍✈️' },
-    { id: 'bitacora',      label: 'Bitácora de Vuelo',       icon: '📋' },
-    { id: 'misiones',      label: 'Informes de Misión',      icon: '🎯' },
-    { id: 'planeamiento',  label: 'Planeamiento',            icon: '🗺️' },
-    { id: 'riesgo',        label: 'Análisis de Riesgo',      icon: '⚠️' },
-    { id: 'mantenimiento', label: 'Mantenimiento',           icon: '🔧' },
-    { id: 'uploader',      label: 'Cargar Archivos',         icon: '⬆️' },
+    { id: 'dashboard',     label: 'Dashboard General',       icon: 'DASH' },
+    { id: 'pilotos',       label: 'Pilotos & Horas',         icon: 'PILOT' },
+    { id: 'bitacora',      label: 'Bitácora de Vuelo',       icon: 'LOG' },
+    { id: 'misiones',      label: 'Informes de Misión',      icon: 'MISSION' },
+    { id: 'planeamiento',  label: 'Planeamiento',            icon: 'PLAN' },
+    { id: 'riesgo',        label: 'Análisis de Riesgo',      icon: 'RISK' },
+    { id: 'mantenimiento', label: 'Mantenimiento',           icon: 'MAINT' },
+    { id: 'uploader',      label: 'Cargar Archivos',         icon: 'UPLOAD' },
+    { id: 'clientes',      label: 'Portales de Clientes',    icon: 'CLIENTS' },
+  ],
+
+  // ── Portales de clientes disponibles ────────────────────────
+  clientPortals: [
+    { id: 'penalisa',       name: 'Corporación Club Puerto Peñalisa',       file: 'clients/penalisa.html',                  color: '#ef4444' },
+    { id: 'restrepo',       name: 'Casa de Campo Restrepo Meta',            file: 'clients/casa-de-campo-restrepo.html',     color: '#f59e0b' },
+    { id: 'calera',         name: 'Conjunto Cerrado Casa de Campo PH',      file: 'clients/casa-de-campo-la-calera.html',   color: '#3b82f6' },
+    { id: 'yeguas',         name: 'Corporación Mesa de Yeguas CC',          file: 'clients/mesa-de-yeguas.html',            color: '#84cc16' },
+    { id: 'mobile',         name: 'Aviación No Tripulada (UAS)',            file: 'clients/mobile-bogota.html',             color: '#22d3ee' },
+    { id: 'granreserva',    name: 'C B Hoteles y Resorts S.A.',             file: 'clients/la-gran-reserva.html',           color: '#10b981' },
+    { id: 'santafe',        name: 'Centro Comercial Santa Fe',              file: 'clients/cc-santafe.html',                color: '#8b5cf6' },
+    { id: 'pradera',        name: 'Club La Pradera de Potosí',              file: 'clients/club-la-pradera-de-potosi.html',  color: '#ec4899' },
   ],
 
 };

@@ -1,6 +1,6 @@
 # UASOPS v8 — Sistema de Reporte Operacional de Drones
 
-Plataforma de gestión y análisis operacional para pilotos de sistemas aéreos no tripulados (UAS/Drones).
+Plataforma de gestion y analisis operacional para pilotos de sistemas aereos no tripulados (UAS/Drones).
 
 ---
 
@@ -12,60 +12,62 @@ UASOPS_v8/
 ├── README.md                   ← Este archivo
 ├── .gitignore                  ← Archivos excluidos de git
 ├── config/
-│   └── app.config.js           ← Configuración global (credenciales Supabase, constantes)
+│   └── app.config.js           ← Configuracion global (credenciales Supabase, constantes)
 ├── assets/
-│   └── css/
-│       ├── base.css            ← Reset, variables CSS, tipografía
-│       ├── components.css      ← Componentes reutilizables
-│       ├── layout.css          ← Header, nav, grid, responsive
-│       └── animations.css      ← Keyframes, transiciones
+│   ├── css/
+│   │   ├── base.css            ← Reset, variables CSS, tipografia
+│   │   ├── components.css      ← Componentes reutilizables
+│   │   ├── layout.css          ← Header, nav, grid, responsive
+│   │   └── animations.css      ← Keyframes, transiciones
+│   └── Logo/
+│       └── Securitas.png       ← Logo de Securitas
 ├── src/
 │   ├── core/
 │   │   ├── state.js            ← Estado global (store centralizado)
-│   │   ├── router.js           ← Navegación entre secciones
+│   │   ├── router.js           ← Navegacion entre secciones
 │   │   ├── eventBus.js         ← Sistema de eventos
 │   │   └── supabase.js         ← API de Supabase (load, save, delete, realtime)
 │   ├── modules/
-│   │   ├── dashboard/          ← Dashboard principal con estadísticas
-│   │   ├── pilotos/            ← Gestión de pilotos y horas
-│   │   ├── bitacora/           ← Bitácora de vuelo
-│   │   ├── misiones/           ← Informes de misión cumplida
+│   │   ├── dashboard/          ← Dashboard principal con estadisticas
+│   │   ├── pilotos/            ← Gestion de pilotos y horas
+│   │   ├── bitacora/           ← Bitacora de vuelo
+│   │   ├── misiones/           ← Informes de mision cumplida
 │   │   ├── planeamiento/       ← Planeamiento de misiones
-│   │   ├── riesgo/             ← Análisis de riesgo
+│   │   ├── riesgo/             ← Analisis de riesgo
 │   │   ├── mantenimiento/      ← Mantenimiento preventivo
 │   │   ├── uploader/           ← Cargador de archivos Excel/CSV
 │   │   └── cliente/            ← Portal corporativo de clientes
 │   └── utils/
 │       ├── parser.js           ← Parser Excel/CSV universal
 │       ├── metrica_ops_parser.js ← Parser formato columnar
-│       ├── calculator.js       ← Cálculos de horas de vuelo
+│       ├── calculator.js       ← Calculos de horas de vuelo
 │       ├── formatter.js        ← Formateo de fechas, nombres
 │       ├── sorter.js           ← Ordenamiento de tablas
-│       ├── charts.js           ← Motor de gráficas
+│       ├── charts.js           ← Motor de graficas
 │       └── storage.js          ← Persistencia (Supabase)
 ├── clients/
 │   ├── client.js               ← Bootstrap del portal de clientes
 │   ├── client.css              ← Estilos del portal
-│   ├── penalisa.html           ← Portal Corporación Club Puerto Peñalisa
+│   ├── penalisa.html           ← Portal Corporacion Club Puerto Penalisa
 │   ├── casa-de-campo-restrepo.html ← Portal Casa de Campo Restrepo
 │   ├── casa-de-campo-la-calera.html ← Portal Casa de Campo La Calera
 │   ├── mesa-de-yeguas.html     ← Portal Mesa de Yeguas
-│   ├── mobile-bogota.html      ← Portal Aviación No Tripulada
+│   ├── mobile-bogota.html      ← Portal Aviacion No Tripulada
 │   ├── la-gran-reserva.html    ← Portal La Gran Reserva
-│   ├── grupo-exito.html        ← Portal Grupo Éxito
+│   ├── grupo-exito.html        ← Portal Grupo Exito
 │   ├── cc-santafe.html         ← Portal Centro Comercial Santa Fe
 │   └── club-la-pradera-de-potosi.html ← Portal Club La Pradera
 ├── scripts/
 │   └── supabase-schema.sql     ← SQL para crear tablas en Supabase
 └── docs/
-    ├── ARQUITECTURA.md         ← Documentación técnica
-    ├── CALCULO_HORAS.md        ← Fórmula de cálculo de horas
-    └── COMO_AGREGAR_MODULO.md  ← Guía para escalar
+    ├── ARQUITECTURA.md         ← Documentacion tecnica
+    ├── CALCULO_HORAS.md        ← Formula de calculo de horas
+    └── COMO_AGREGAR_MODULO.md  ← Guia para escalar
 ```
 
 ---
 
-## Inicio Rápido
+## Inicio Rapido
 
 1. Clona el repositorio
 2. Abre `index.html` en tu navegador
@@ -80,15 +82,15 @@ El sistema usa **Supabase** como base de datos en tiempo real.
 - **Credenciales:** En `config/app.config.js`
 
 ### Tablas
-| Tabla | Descripción |
+| Tabla | Descripcion |
 |-------|-------------|
 | `bitacora` | Registros de vuelo (GMB-F15) |
-| `misiones` | Informes de misión cumplida (GMB-F16) |
-| `planeamiento` | Planeamiento de la misión (GMB-F08) |
-| `riesgo` | Análisis de riesgo (GMB-F10) |
+| `misiones` | Informes de mision cumplida (GMB-F16) |
+| `planeamiento` | Planeamiento de la mision (GMB-F08) |
+| `riesgo` | Analisis de riesgo (GMB-F10) |
 | `mantenimiento` | Mantenimiento preventivo (GMB-F11) |
 | `pilots` | Registro de pilotos |
-| `clientes` | Registro dinámico de clientes |
+| `clientes` | Registro dinamico de clientes |
 
 ### Crear tablas
 Ejecuta el script `scripts/supabase-schema.sql` en el SQL Editor de Supabase.
@@ -99,30 +101,33 @@ Cada cliente tiene su propio portal con datos filtrados:
 
 | Cliente | Archivo |
 |---------|---------|
-| Corporación Club Puerto Peñalisa | `clients/penalisa.html` |
+| Corporacion Club Puerto Penalisa | `clients/penalisa.html` |
 | Casa de Campo Restrepo Meta | `clients/casa-de-campo-restrepo.html` |
 | Conjunto Cerrado Casa de Campo PH | `clients/casa-de-campo-la-calera.html` |
-| Corporación Mesa de Yeguas CC | `clients/mesa-de-yeguas.html` |
-| Aviación No Tripulada (UAS) | `clients/mobile-bogota.html` |
+| Corporacion Mesa de Yeguas CC | `clients/mesa-de-yeguas.html` |
+| Aviacion No Tripulada (UAS) | `clients/mobile-bogota.html` |
 | C B Hoteles y Resorts S.A. | `clients/la-gran-reserva.html` |
 | Centro Comercial Santa Fe | `clients/cc-santafe.html` |
-| Club La Pradera de Potosí | `clients/club-la-pradera-de-potosi.html` |
+| Club La Pradera de Potosi | `clients/club-la-pradera-de-potosi.html` |
 
-## Configuración
+## Configuracion
 
 Edita `config/app.config.js` para cambiar:
-- Fórmula de cálculo de horas (minutos ÷ 35)
+- Formula de calculo de horas (minutos / 35)
 - Tipos de formulario
 - Colores del tema
 - Credenciales de Supabase
 
 ## Funcionalidades
 
-- Dashboard con estadísticas generales
+- Dashboard con estadisticas generales
 - Carga masiva de archivos Excel/CSV
-- 5 módulos: Bitácora, Misiones, Planeamiento, Riesgo, Mantenimiento
-- Gráficas interactivas con Chart.js
+- 5 modulos: Bitacora, Misiones, Planeamiento, Riesgo, Mantenimiento
+- Graficas interactivas con Chart.js
 - Filtros por cliente, piloto, fecha y aeronave
 - Portales de clientes con datos filtrados
-- Botón "BORRAR TODO" para limpiar la base de datos
-- Sincronización en tiempo real con Supabase
+- Seccion de Portales de Clientes con acceso directo
+- Boton "BORRAR TODO" para limpiar la base de datos
+- Sincronizacion en tiempo real con Supabase
+- Logo de Securitas integrado en el sidebar y loader
+- Diseno profesional sin emojis

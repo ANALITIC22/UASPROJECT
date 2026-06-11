@@ -108,9 +108,10 @@
 
 <!-- ── Supabase App Loader ── -->
 <div id="app-loader">
+ <img src="assets/Logo/Securitas.png" alt="Securitas" style="width:60px;height:auto;margin-bottom:16px;filter:brightness(0) invert(1)">
  <div class="loader-logo">UAS<span>OPS</span></div>
  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
- <div class="loader-msg">Conectando con Supabase…</div>
+ <div class="loader-msg">Conectando con Supabase...</div>
  <div class="loader-supabase"> rtxibbdpkmnqmpscbuyn.supabase.co</div>
 </div>
 
@@ -132,10 +133,11 @@
  ══════════════════════════════════════════════════ -->
  <aside class="sidebar">
  <div class="sidebar__brand">
+ <img src="assets/Logo/Securitas.png" alt="Securitas" class="sidebar__logo-img">
  <div class="sidebar__logo">UAS<span>OPS</span></div>
  <div class="sidebar__tagline">Sistema Operacional UAS</div>
  <div class="sidebar__live">
- <span class="live-dot"></span><span class="live-label">EN LÍNEA</span>
+ <span class="live-dot"></span><span class="live-label">EN LINEA</span>
  </div>
  </div>
 
@@ -214,38 +216,38 @@
  <div class="section-eyebrow">Vista general</div>
  <div class="section-title">Dashboard Operacional</div>
 
- <div class="grid-stats">
+<div class="grid-stats">
  <div class="stat-card animate-fade-in stagger-1">
- <div class="stat-card__label">⏱ Horas de Vuelo</div>
- <div class="stat-card__value" id="stat-total-hours">—</div>
+ <div class="stat-card__label">HORAS DE VUELO</div>
+ <div class="stat-card__value" id="stat-total-hours">--</div>
  <div class="stat-card__sub">Acumuladas todas las operaciones</div>
  </div>
  <div class="stat-card animate-fade-in stagger-2">
- <div class="stat-card__label">Pilotos Activos</div>
- <div class="stat-card__value stat-card__value--green" id="stat-pilots">—</div>
+ <div class="stat-card__label">PILOTOS ACTIVOS</div>
+ <div class="stat-card__value stat-card__value--green" id="stat-pilots">--</div>
  <div class="stat-card__sub">Operadores certificados</div>
  </div>
  <div class="stat-card animate-fade-in stagger-3">
- <div class="stat-card__label">Operaciones</div>
- <div class="stat-card__value" id="stat-flights">—</div>
- <div class="stat-card__sub">Registros en bitácora</div>
+ <div class="stat-card__label">OPERACIONES</div>
+ <div class="stat-card__value" id="stat-flights">--</div>
+ <div class="stat-card__sub">Registros en bitacora</div>
  </div>
  <div class="stat-card animate-fade-in stagger-4">
- <div class="stat-card__label">Misiones Completadas</div>
- <div class="stat-card__value stat-card__value--orange" id="stat-missions">—</div>
- <div class="stat-card__sub">Informes de misión cumplida</div>
+ <div class="stat-card__label">MISIONES COMPLETADAS</div>
+ <div class="stat-card__value stat-card__value--orange" id="stat-missions">--</div>
+ <div class="stat-card__sub">Informes de mision cumplida</div>
  </div>
  <div class="stat-card animate-fade-in stagger-5">
- <div class="stat-card__label">Registros Totales</div>
- <div class="stat-card__value" id="stat-total">—</div>
+ <div class="stat-card__label">REGISTROS TOTALES</div>
+ <div class="stat-card__value" id="stat-total">--</div>
  <div class="stat-card__sub">Todos los formularios</div>
  </div>
  <div class="stat-card animate-fade-in stagger-6">
- <div class="stat-card__label">Mantenimientos</div>
- <div class="stat-card__value stat-card__value--green" id="stat-mant">—</div>
+ <div class="stat-card__label">MANTENIMIENTOS</div>
+ <div class="stat-card__value stat-card__value--green" id="stat-mant">--</div>
  <div class="stat-card__sub">Preventivos realizados</div>
  </div>
- </div>
+</div>
 
  <div class="grid-charts">
  <div class="panel animate-fade-in">
@@ -573,6 +575,18 @@
  </div>
  </div>
 
+ </div>
+
+ <!-- ── CLIENTES ────────────────────────────── -->
+ <div id="clientes" class="section">
+ <div class="section-eyebrow">Acceso Directo</div>
+ <div class="section-header">
+ <div class="section-header__title">Portales de Clientes</div>
+ </div>
+ <p style="color:var(--text2);font-size:13px;margin-bottom:20px;line-height:1.6">
+ Acceda a los paneles operacionales de cada cliente. Cada portal muestra unfiltrado y exclusivo de la información del cliente correspondiente.
+ </p>
+ <div class="grid-clients" id="clients-grid"></div>
  </div>
 
  </main>

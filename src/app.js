@@ -13187,18 +13187,18 @@ const REAL_PILOTS = [
     const btn    = document.getElementById('btn-delete-all-supabase');
     const status = document.getElementById('delete-all-status');
     const confirmed = window.confirm(
-      '⚠️ ADVERTENCIA\n\nEstás a punto de eliminar TODOS los registros de Supabase:\n' +
+      'ADVERTENCIA\n\nEstas a punto de eliminar TODOS los registros de Supabase:\n' +
       '• bitacora\n• misiones\n• planeamiento\n• riesgo\n• mantenimiento\n• pilots\n• clientes\n• _ping\n\n' +
       'Las tablas se mantendrán vacías. Los datos semilla locales se restaurarán.\n\n' +
       '¿Estás seguro? Esta acción NO se puede deshacer.'
     );
     if (!confirmed) return;
-    if (btn) { btn.disabled = true; btn.textContent = '⏳ Borrando...'; }
+    if (btn) { btn.disabled = true; btn.textContent = 'Borrando...'; }
     if (status) { status.style.display = ''; status.textContent = 'Conectando a Supabase...'; }
     try {
       const total = await SupabaseDB.deleteAllCollections();
-      if (status) status.textContent = `✅ Listo — ${total} registros eliminados de Supabase`;
-      if (btn) { btn.textContent = '✅ Borrado completo'; }
+      if (status) status.textContent = `Listo - ${total} registros eliminados de Supabase`;
+      if (btn) { btn.textContent = 'Borrado completo'; }
 
       // Restaurar datos semilla locales
       State.set('data', REAL_DATA_SEED);
@@ -13220,12 +13220,12 @@ const REAL_PILOTS = [
 
       // Restaurar botón después de 2 segundos
       setTimeout(() => {
-        if (btn) { btn.disabled = false; btn.textContent = '🗑️ BORRAR TODO EN SUPABASE'; }
+        if (btn) { btn.disabled = false; btn.textContent = 'BORRAR TODO EN SUPABASE'; }
       }, 2000);
 
     } catch (err) {
-      if (status) status.textContent = `❌ Error: ${err.message}`;
-      if (btn) { btn.disabled = false; btn.textContent = '🗑️ BORRAR TODO EN SUPABASE'; }
+      if (status) status.textContent = `Error: ${err.message}`;
+      if (btn) { btn.disabled = false; btn.textContent = 'BORRAR TODO EN SUPABASE'; }
       console.error('[DeleteAll]', err);
     }
   };
@@ -13259,7 +13259,7 @@ const REAL_PILOTS = [
       // Show info tooltip
       if (infoEl) {
         infoEl.style.display = '';
-        infoEl.textContent = `ℹ️ Datos disponibles: ${range.min} → ${range.max}`;
+        infoEl.textContent = `Datos disponibles: ${range.min} - ${range.max}`;
         infoEl.title = `Solo hay información desde ${range.min} hasta ${range.max}`;
       }
     } else {
@@ -13312,6 +13312,25 @@ const REAL_PILOTS = [
     populatePilotSelects();
     populateClientSelects();
     updateDateInputBounds();
+    renderClientPortals();
+  }
+
+  // ── Renderizar grilla de portales de clientes ──────────────
+  function renderClientPortals() {
+    const grid = document.getElementById('clients-grid');
+    if (!grid) return;
+
+    const portals = APP_CONFIG.clientPortals || [];
+    grid.innerHTML = portals.map(p => `
+      <a href="${p.file}" target="_blank" class="client-card">
+        <div class="client-card__color" style="background:${p.color}"></div>
+        <div class="client-card__name">${p.name}</div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="client-card__link">${p.file}</div>
+          <div class="client-card__arrow">&#8594;</div>
+        </div>
+      </a>
+    `).join('');
   }
 
   function initToast() {
@@ -13381,7 +13400,7 @@ const REAL_PILOTS = [
     updateConnectionStatus(false);
     _isFirstLoad = false;
 
-    console.info('[UASOPS] ✅ App lista con datos locales — intentando conectar Supabase…');
+    console.info('[UASOPS] App lista con datos locales - intentando conectar Supabase...');
 
     // ── PASO 2: Conectar Supabase en segundo plano (sin bloquear la UI)
     try {

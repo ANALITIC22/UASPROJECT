@@ -190,12 +190,12 @@ const UploaderModule = (() => {
     });
 
     if (supported.length === 0) {
-      _toast('⚠ Solo se soportan archivos .xlsx, .xls o .csv', 'warning');
+      _toast('Solo se soportan archivos .xlsx, .xls o .csv', 'warning');
       return;
     }
 
     if (supported.length < files.length) {
-      _toast(`⚠ ${files.length - supported.length} archivo(s) ignorado(s) (formato no soportado)`, 'warning');
+      _toast(`${files.length - supported.length} archivo(s) ignorado(s) (formato no soportado)`, 'warning');
     }
 
     // Agrupar archivos por nombre base ANTES de procesar
@@ -207,7 +207,7 @@ const UploaderModule = (() => {
         const result = await _readGroup(group);
 
         if (result.errors.length) {
-          _toast(`⚠ ${group.baseName}: ${result.errors[0]}`, 'warning');
+          _toast(`${group.baseName}: ${result.errors[0]}`, 'warning');
         }
 
         const { added, skipped } = _mergeRecords(result.records);
@@ -229,13 +229,13 @@ const UploaderModule = (() => {
         if (skipped > 0 && added === 0) {
           _toast(`♻ ${group.baseName} — ya cargado (${skipped} registros duplicados omitidos)`, 'warning');
         } else if (group.continuations.length > 0) {
-          _toast(`✅ ${group.baseName} — consolidado (${group.allFiles.length} archivos, ${added} registros)`, 'success');
+           _toast(`${group.baseName} - consolidado (${group.allFiles.length} archivos, ${added} registros)`, 'success');
         } else {
-          _toast(`✅ ${group.baseName} — ${added} registros listos para integrar`, 'success');
+           _toast(`${group.baseName} — ${added} registros listos para integrar`, 'success');
         }
 
       } catch (err) {
-        _toast(`❌ ${group.baseName}: ${err.message}`, 'error');
+         _toast(`Error: ${err.message}`, 'error');
       }
     }
 
@@ -348,7 +348,7 @@ const UploaderModule = (() => {
     item.dataset.fileNames = JSON.stringify(group.allFiles.map(f => f.name));
 
     item.innerHTML = `
-      <div class="file-item__icon">📊</div>
+      <div class="file-item__icon">XLS</div>
       <div class="file-item__info">
         <div class="file-item__name">
           ${group.baseName}
@@ -429,7 +429,7 @@ const UploaderModule = (() => {
 
     groupEl?.remove();
     _renderPreview();
-    _toast(`🗑 Grupo "${groupName}" eliminado`);
+    _toast(`Grupo "${groupName}" eliminado`);
   }
 
   // removeFile se mantiene para compatibilidad
@@ -471,7 +471,7 @@ const UploaderModule = (() => {
 
   async function integrate() {
     if (_pendingRecords.length === 0) {
-      _toast('⚠ No hay archivos pendientes de integrar', 'warning');
+      _toast('No hay archivos pendientes de integrar', 'warning');
       return;
     }
 
@@ -482,8 +482,8 @@ const UploaderModule = (() => {
     if (btn) {
       btn.disabled = true;
       btn.textContent = isLargeVolume
-        ? `⬆ Subiendo ${total} registros… 0%`
-        : '⬆ Subiendo a Supabase…';
+        ? `Subiendo ${total} registros... 0%`
+        : 'Subiendo a Supabase...';
     }
 
     try {
@@ -499,11 +499,11 @@ const UploaderModule = (() => {
 
       const recordsToSave = _sanitizePlaneamiento(_pendingRecords);
 
-      // Callback de progreso — solo activo en volúmenes grandes para no saturar DOM
+      // Callback de progreso — solo activo en volumenes grandes para no saturar DOM
       const onProgress = isLargeVolume
         ? ({ saved, total: tot }) => {
             const pct = Math.round((saved / tot) * 100);
-            if (btn) btn.textContent = `⬆ Subiendo ${tot} registros… ${pct}%`;
+            if (btn) btn.textContent = `Subiendo ${tot} registros... ${pct}%`;
           }
         : null;
 
@@ -528,13 +528,13 @@ const UploaderModule = (() => {
 
       EventBus.emit('upload:integrated', { count: addedCount });
       EventBus.emit('data:updated', { source: 'upload' });
-      _toast(`✅ ${savedCount} registros integrados en Supabase (UPSERT — sin duplicados)`, 'success');
+      _toast(`${savedCount} registros integrados en Supabase (UPSERT - sin duplicados)`, 'success');
 
     } catch (err) {
       console.error('[Uploader] Error:', err);
-      _toast(`❌ Error al guardar: ${err.message}`, 'error');
+      _toast(`Error al guardar: ${err.message}`, 'error');
     } finally {
-      if (btn) { btn.disabled = false; btn.textContent = '✅ Integrar al Sistema'; }
+      if (btn) { btn.disabled = false; btn.textContent = 'Integrar al Sistema'; }
     }
   }
 
@@ -544,7 +544,7 @@ const UploaderModule = (() => {
     _pendingIds     = new Set();
     document.getElementById('uploaded-list').innerHTML = '';
     document.getElementById('upload-preview').style.display = 'none';
-    _toast('🗑 Archivos pendientes eliminados');
+    _toast('Archivos pendientes eliminados');
   }
 
   function _setText(id, value) {

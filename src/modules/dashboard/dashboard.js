@@ -102,11 +102,11 @@ const DashboardModule = (() => {
     if (cliente) {
       // Abreviar nombre largo para UI
       const displayName = cliente.length > 35 ? cliente.substring(0, 35) + '…' : cliente;
-      clientLabel.textContent = `📍 ${displayName}`;
+      clientLabel.textContent = displayName;
       clientLabel.style.color  = 'var(--accent)';
       clientLabel.title        = cliente; // tooltip con nombre completo
     } else {
-      clientLabel.textContent = '📊 Todos los clientes';
+      clientLabel.textContent = 'Todos los clientes';
       clientLabel.style.color  = 'var(--text2)';
       clientLabel.title        = '';
     }
@@ -152,14 +152,14 @@ const DashboardModule = (() => {
     Charts.renderFormDistribution('chart-forms', data);
   }
 
-  // ── Línea de tiempo ───────────────────────────────────────────
+  // ── Linea de tiempo ───────────────────────────────────────────
   function _renderTimeline(data) {
     const allEvents = [
-      ...(data.bitacora      || []).map(r => ({ ...r, tipo: '✈ Vuelo',       color: APP_CONFIG.formTypes.bitacora.color })),
-      ...(data.misiones      || []).map(r => ({ ...r, tipo: '🎯 Misión',      color: APP_CONFIG.formTypes.misiones.color })),
-      ...(data.planeamiento  || []).map(r => ({ ...r, tipo: '🗺 Planeamiento', color: APP_CONFIG.formTypes.planeamiento.color })),
-      ...(data.riesgo        || []).map(r => ({ ...r, tipo: '⚠ Riesgo',       color: APP_CONFIG.formTypes.riesgo.color })),
-      ...(data.mantenimiento || []).map(r => ({ ...r, tipo: '🔧 Mtto',         color: APP_CONFIG.formTypes.mantenimiento.color })),
+      ...(data.bitacora      || []).map(r => ({ ...r, tipo: 'Vuelo',       color: APP_CONFIG.formTypes.bitacora.color })),
+      ...(data.misiones      || []).map(r => ({ ...r, tipo: 'Mision',      color: APP_CONFIG.formTypes.misiones.color })),
+      ...(data.planeamiento  || []).map(r => ({ ...r, tipo: 'Planeamiento', color: APP_CONFIG.formTypes.planeamiento.color })),
+      ...(data.riesgo        || []).map(r => ({ ...r, tipo: 'Riesgo',       color: APP_CONFIG.formTypes.riesgo.color })),
+      ...(data.mantenimiento || []).map(r => ({ ...r, tipo: 'Mtto',         color: APP_CONFIG.formTypes.mantenimiento.color })),
     ].sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
     Charts.renderTimeline('timeline-main', allEvents, 15);

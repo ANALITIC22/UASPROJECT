@@ -97,12 +97,12 @@ const PilotosModule = (() => {
     if (!banner) return;
 
     if (cliente) {
-      const displayName = cliente.length > 40 ? cliente.substring(0, 40) + '…' : cliente;
-      banner.textContent = `📍 Mostrando datos de: ${displayName}`;
+      const displayName = cliente.length > 40 ? cliente.substring(0, 40) + '...' : cliente;
+      banner.textContent = `Mostrando datos de: ${displayName}`;
       banner.style.display = '';
       banner.title = cliente;
     } else {
-      banner.textContent = '📊 Todos los clientes';
+      banner.textContent = 'Todos los clientes';
       banner.style.display = '';
       banner.title = '';
     }
@@ -116,7 +116,7 @@ const PilotosModule = (() => {
     if (stats.length === 0) {
       grid.innerHTML = `
         <div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--text2)">
-          <div style="font-size:48px;margin-bottom:16px">👤</div>
+          <div style="font-size:48px;margin-bottom:16px">PILOT</div>
           <div style="font-size:16px">Sin pilotos registrados para el cliente seleccionado</div>
         </div>`;
       return;

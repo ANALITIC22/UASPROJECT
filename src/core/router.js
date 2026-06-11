@@ -1,7 +1,7 @@
 /**
  * router.js — Navegación entre Secciones
  * ========================================
- * v7: Sidebar-aware. Genera botones con icon + label separados.
+ * v8: Professional text icons + client portals section
  */
 
 const Router = (() => {
@@ -24,9 +24,8 @@ const Router = (() => {
       const next = document.getElementById(sectionId);
       if (next) {
         next.classList.add('section--active');
-        // Emil: section transition — once per nav, ease-out, no scale(0)
         next.style.animation = 'none';
-        next.offsetHeight; // reflow
+        next.offsetHeight;
         next.style.animation = '';
         next.classList.add('animate-section-in');
         setTimeout(() => next.classList.remove('animate-section-in'), 280);
@@ -54,7 +53,6 @@ const Router = (() => {
         btn.className = 'nav__btn';
         btn.dataset.section = item.id;
 
-        // Sidebar structure: icon + text span
         const iconEl = document.createElement('span');
         iconEl.className = 'nav__btn-icon';
         iconEl.textContent = item.icon;

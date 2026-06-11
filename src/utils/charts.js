@@ -25,7 +25,7 @@ const Charts = (() => {
     } = opts;
 
     if (!data || data.length === 0) {
-      container.innerHTML = `<div class="empty-state"><div class="empty-state__icon">📊</div><div class="empty-state__desc">Sin datos disponibles</div></div>`;
+      container.innerHTML = `<div class="empty-state"><div class="empty-state__icon">DASH</div><div class="empty-state__desc">Sin datos disponibles</div></div>`;
       return;
     }
 
