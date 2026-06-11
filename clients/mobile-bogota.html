@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UASOPS — Portal Analítico Corporativo · UAS - Mobile / Bogotá</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="client.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <span>UASOPS · Sistema Operacional UAS</span>
+  <div class="top-bar-right">
+    <div class="top-bar-dot"></div>
+    <span>Sistema Activo</span>
+  </div>
+</div>
+
+<div class="portal">
+
+  <header class="header-executive">
+    <div class="header-brand">
+      <p class="brand-org">UASOPS · Reporte Operacional UAS</p>
+      <h1>Portal <span>Analítico</span> Corporativo</h1>
+      <p class="sub">UAS - Mobile / Bogotá — Informe de Operaciones Aéreas de Seguridad y Vigilancia Autónoma</p>
+    </div>
+    <div class="header-meta">
+      <div>Fecha de Emisión: <strong id="current-date">—</strong></div>
+      <div>Clasificación: <strong>USO EXCLUSIVO DEL CLIENTE</strong></div>
+      <div>Estado del Contrato: <span class="status-active">Activo</span></div>
+      <div>Referencia: <strong>GMB-PORTAL-V2</strong></div>
+    </div>
+  </header>
+
+  <div class="coverage-banner" id="coverage-banner">
+    ⏱ Calculando ventana de control operativo activa...
+  </div>
+
+  <div class="filter-toolbar">
+    <div class="filter-group">
+      <label class="filter-label" for="filter-desde">Desde</label>
+      <input type="date" id="filter-desde" class="filter-control">
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="filter-hasta">Hasta</label>
+      <input type="date" id="filter-hasta" class="filter-control">
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="filter-pilot">Piloto Asignado</label>
+      <select id="filter-pilot" class="filter-control">
+        <option value="">Todos los pilotos</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label class="filter-label" for="filter-matricula">Matrícula / Aeronave</label>
+      <select id="filter-matricula" class="filter-control">
+        <option value="">Todas las aeronaves</option>
+      </select>
+    </div>
+    <div class="filter-actions">
+      <button id="btn-clear-filters" class="btn-exec btn-outline">Limpiar Filtros</button>
+    </div>
+  </div>
+
+  <div class="action-bar">
+    <button id="btn-refresh" onclick="ClientView.refresh()">↻ Actualizar</button>
+    <button class="btn-exec" onclick="window.print()">⬇ Exportar Dossier Ejecutivo</button>
+  </div>
+
+  <h2 class="section-heading">Indicadores Clave de Desempeño Operacional</h2>
+  <div class="kpi-grid">
+
+    <div class="kpi-card">
+      <div class="kpi-card-icon">✈️</div>
+      <div class="kpi-label">Horas Totales de Cobertura</div>
+      <div class="kpi-value" id="kpi-hours">...</div>
+      <div class="kpi-sub">Factor operativo de división: 35 — resultado con dos decimales</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card-icon">⏱</div>
+      <div class="kpi-label">Promedio de Tiempo por Vuelo</div>
+      <div class="kpi-value" id="kpi-avg-flight">...</div>
+      <div class="kpi-sub">Total de minutos dividido entre vuelos registrados</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card-icon">🕐</div>
+      <div class="kpi-label">Moda Horaria de Operación</div>
+      <div class="kpi-value kpi-text" id="kpi-hora-modal">...</div>
+      <div class="kpi-sub">Bloque horario de mayor frecuencia de despegue</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card-icon">👤</div>
+      <div class="kpi-label">Piloto con Mayor Asignación</div>
+      <div class="kpi-value kpi-text" id="kpi-pilot-modal">...</div>
+      <div class="kpi-sub">Personal con mayor cantidad de misiones en el conjunto</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card-icon">🎯</div>
+      <div class="kpi-label">Eficiencia de Misiones</div>
+      <div class="kpi-value" id="kpi-efficiency">...</div>
+      <div class="kpi-sub" id="kpi-efficiency-sub">Porcentaje de misiones marcadas como CUMPLIDA</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card-icon">📋</div>
+      <div class="kpi-label">Misiones Registradas</div>
+      <div class="kpi-value" id="kpi-missions">...</div>
+      <div class="kpi-sub">Total de informes GMB-F16 en el sistema</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-card-icon">⚠️</div>
+      <div class="kpi-label">Índice de Riesgo Promedio</div>
+      <div class="kpi-value" id="kpi-risk-avg">...</div>
+      <div class="kpi-sub">Evaluación de mitigación GMB-F10 — promedio ponderado</div>
+    </div>
+
+  </div>
+
+  <h2 class="section-heading">Analítica Gráfica Operacional</h2>
+  <div class="charts-row">
+
+    <div class="chart-card">
+      <div class="chart-title">Línea Temporal de Cobertura — Minutos Volados por Día</div>
+      <div class="chart-wrapper" id="chart-linea-container">
+        <canvas id="chart-linea"></canvas>
+        <div class="chart-empty">Sin datos de bitácora disponibles para el período.</div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Análisis de Riesgo Operacional por Fecha — GMB-F10</div>
+      <div class="chart-wrapper" id="chart-riesgo-container">
+        <canvas id="chart-riesgo"></canvas>
+        <div class="chart-empty">Sin datos de riesgo disponibles para el período.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="section-heading">Trazabilidad Operacional Completa</h2>
+
+  <div class="tabs-wrapper">
+
+    <nav class="tabs-nav">
+      <button class="tab-btn active" data-tab="tab-bitacora">Bitácora GMB-F15</button>
+      <button class="tab-btn"        data-tab="tab-misiones">Informe de Misiones GMB-F16</button>
+      <button class="tab-btn"        data-tab="tab-planeamiento">Planeamiento Técnico GMB-F08</button>
+      <button class="tab-btn"        data-tab="tab-mantenimiento">Mantenimiento Preventivo</button>
+    </nav>
+
+    <div class="tab-panel active" id="tab-bitacora">
+      <div class="table-block">
+        <div class="table-responsive">
+          <table class="exec-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Piloto Asignado</th>
+                <th>Matrícula</th>
+                <th>Tipo de Aeronave</th>
+                <th>Tipo Contacto Visual</th>
+                <th>Hora Despegue</th>
+                <th>Hora Aterrizaje</th>
+                <th>Tiempo de Vuelo</th>
+              </tr>
+            </thead>
+            <tbody id="bitacora-table-body">
+              <tr><td colspan="8" class="empty-row">Cargando registros de bitácora...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-misiones">
+      <div class="table-block">
+        <div class="table-responsive">
+          <table class="exec-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Área Volada</th>
+                <th>Ruta de Vuelo Efectuada</th>
+                <th>Resultado Operativo</th>
+                <th>Descripción Detallada del Sobrevuelo</th>
+                <th>Piloto</th>
+              </tr>
+            </thead>
+            <tbody id="misiones-table-body">
+              <tr><td colspan="6" class="empty-row">Cargando informes de misión...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-planeamiento">
+      <div class="table-block">
+        <div class="table-responsive">
+          <table class="exec-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Altitud Máx. Autorizada</th>
+                <th>Umbral de Batería</th>
+                <th>Reporte Meteorológico</th>
+                <th>Obstáculos a Considerar</th>
+                <th>Piloto</th>
+              </tr>
+            </thead>
+            <tbody id="planeamiento-table-body">
+              <tr><td colspan="6" class="empty-row">Cargando parámetros de planeamiento...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-mantenimiento">
+      <div class="table-block">
+        <div class="table-responsive">
+          <table class="exec-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Aeronave / Matrícula</th>
+                <th>Técnico / Piloto</th>
+                <th>Tipo de Mantenimiento</th>
+                <th>Observaciones de Inspección</th>
+              </tr>
+            </thead>
+            <tbody id="mantenimiento-table-body">
+              <tr><td colspan="5" class="empty-row">Cargando registros de mantenimiento...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="portal-footer">
+    <div class="footer-brand">
+      <div class="footer-logo">UA</div>
+      <div class="footer-text">
+        <strong>UASOPS v8 · Portal Corporativo</strong>
+        Sistema de Reporte Operacional UAS — Uso exclusivo del cliente
+      </div>
+    </div>
+    <div class="footer-dev">
+      <div class="footer-dev-label">Equipo de Desarrollo</div>
+      <div class="footer-dev-team">Juan Ardila</div>
+      <div class="footer-dev-company">Securitas · UASOPS</div>
+    </div>
+  </footer>
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<script src="../config/app.config.js"></script>
+<script src="../src/modules/cliente/clientView.js"></script>
+<script>
+  window.UASOPS_CLIENT_ID = 'UAS - MOBILE / BOGOTA';
+</script>
+<script src="client.js"></script>
+
+</body>
+</html>

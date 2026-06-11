@@ -1,0 +1,109 @@
+/**
+ * animations.css — Emil Kowalski-compliant · UASOPS v8 Securitas Edition
+ * =======================================================================
+ */
+
+/* ── Custom Easing Curves ── */
+:root {
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* ── Keyframes ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sectionIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes barGrow {
+  from { opacity: 0; width: 0 !important; }
+  to   { opacity: 1; }
+}
+
+@keyframes numberIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 5px var(--green); }
+  50%       { opacity: 0.35; box-shadow: none; }
+}
+
+@keyframes borderPulse {
+  0%, 100% { border-color: var(--border); }
+  50%       { border-color: var(--sec-mid-blue); }
+}
+
+/* ── Utility Classes ── */
+.animate-fade-in    { animation: fadeIn    260ms var(--ease-out)    both; }
+.animate-fade-left  { animation: fadeInLeft 260ms var(--ease-out)   both; }
+.animate-scale-in   { animation: scaleIn   200ms var(--ease-out)    both; }
+.animate-slide-down { animation: slideDown 200ms var(--ease-out)    both; }
+.animate-section-in { animation: sectionIn 260ms var(--ease-out)    both; }
+.animate-number-in  { animation: numberIn  300ms var(--ease-spring) both; }
+
+/* Stagger — 40ms intervals */
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 40ms; }
+.stagger-3 { animation-delay: 80ms; }
+.stagger-4 { animation-delay: 120ms; }
+.stagger-5 { animation-delay: 160ms; }
+.stagger-6 { animation-delay: 200ms; }
+
+.bar-animate { animation: barGrow 900ms var(--ease-out) both; }
+
+/* Hover states — gated for touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift {
+    transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out);
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(66, 99, 140, 0.15);
+    border-color: rgba(66, 99, 140, 0.4) !important;
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-left,
+  .animate-scale-in,
+  .animate-slide-down,
+  .animate-section-in,
+  .animate-number-in {
+    animation: none;
+    opacity: 1;
+  }
+  .bar-animate { animation: none; }
+  .hover-lift:hover { transform: none; }
+}

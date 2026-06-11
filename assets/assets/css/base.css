@@ -1,0 +1,253 @@
+/**
+ * base.css — Variables CSS y Tipografía Global · UASOPS v8 Securitas Edition
+ * ===========================================================================
+ * Paleta: Securitas Official Brand · Tipografía: Barlow + IBM Plex Mono
+ */
+
+/* ── Google Fonts ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* ── Design Tokens — Securitas Brand ────────────────────────── */
+:root {
+  /* ── Securitas Primary Palette ── */
+  --sec-red:         #FC273F;
+  --sec-navy:        #031F30;
+
+  /* ── Securitas Accent ── */
+  --sec-purple:      #8D5FFF;
+
+  /* ── Red Shades ── */
+  --sec-light-red:   #FF8DA3;
+  --sec-mid-red:     #AA1834;
+  --sec-dark-red:    #641432;
+
+  /* ── Blue Shades ── */
+  --sec-light-blue:  #ACC2DD;
+  --sec-mid-blue:    #42638C;
+
+  /* ── Purple Shades ── */
+  --sec-light-purple:#C2B4FC;
+  --sec-mid-purple:  #55419E;
+  --sec-dark-purple: #26224C;
+
+  /* ── Greyscale ── */
+  --sec-white:       #FFFFFF;
+  --sec-light-grey:  #D7D8D6;
+  --sec-mid-grey:    #9C9EA0;
+  --sec-dark-grey:   #53565A;
+
+  /* ── Background System (dark navy) ── */
+  --bg:        #020D18;
+  --bg2:       #031F30;
+  --bg3:       #042840;
+  --panel:     #052235;
+  --panel2:    #073048;
+  --border:    #0E3D5C;
+  --border2:   #1A5478;
+
+  /* ── Sidebar ── */
+  --sidebar-w:  230px;
+  --sidebar-bg: rgba(2, 13, 24, 0.98);
+
+  /* ── Accent = Securitas Red (on dark) ── */
+  --accent:     var(--sec-red);
+  --accent-dim: rgba(252, 39, 63, 0.10);
+  --accent-glow:rgba(252, 39, 63, 0.20);
+
+  /* ── Secondary accent = Light Blue ── */
+  --accent2:    var(--sec-light-blue);
+  --accent2-dim:rgba(172, 194, 221, 0.10);
+
+  /* ── Status Colors ── */
+  --green:      #2ECC71;
+  --green-dim:  rgba(46, 204, 113, 0.10);
+  --red:        var(--sec-red);
+  --red-dim:    rgba(252, 39, 63, 0.10);
+  --yellow:     #F0C419;
+  --purple:     var(--sec-purple);
+  --purple-dim: rgba(141, 95, 255, 0.10);
+  --blue:       var(--sec-mid-blue);
+
+  /* ── Text ── */
+  --text:      #C8D8E8;
+  --text2:     #7A9BB8;
+  --text3:     #3A5A78;
+  --text-inv:  #031F30;
+
+  /* ── Glassmorphism (navy-based) ── */
+  --glass:        rgba(5, 34, 53, 0.75);
+  --glass-border: rgba(172, 194, 221, 0.12);
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.5);
+  --shadow:    0 8px 32px rgba(0,0,0,0.6);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.7);
+
+  /* ── Tipografía ── */
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'Barlow', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  /* ── Espaciado ── */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+
+  /* ── Radios ── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-pill: 9999px;
+
+  /* ── Easing curves — Emil Kowalski compliant ── */
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --transition:  0.18s cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-slow: 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* ── Reset universal ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Fondo sutil — patrón de puntos discreto ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(172, 194, 221, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vignette overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(252, 39, 63, 0.03) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Tipografía base ─────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--sec-white);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+h1 { font-size: 30px; }
+h2 { font-size: 24px; }
+h3 { font-size: 19px; }
+h4 { font-size: 15px; }
+
+p { margin-bottom: var(--space-md); }
+
+a { color: var(--sec-light-blue); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--sec-white); }
+
+strong { font-weight: 700; color: var(--sec-white); }
+em { color: var(--text2); font-style: italic; }
+
+code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: rgba(172, 194, 221, 0.08);
+  border: 1px solid rgba(172, 194, 221, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  color: var(--sec-light-blue);
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sec-mid-blue); }
+
+/* ── Utilidades ─────────────────────────────────────────────── */
+.text-accent  { color: var(--sec-red); }
+.text-green   { color: var(--green); }
+.text-orange  { color: var(--sec-light-blue); }
+.text-yellow  { color: var(--yellow); }
+.text-red     { color: var(--sec-red); }
+.text-muted   { color: var(--text2); }
+.text-white   { color: var(--sec-white); }
+
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+.text-xs  { font-size: 10px; }
+.text-sm  { font-size: 12px; }
+.text-md  { font-size: 14px; }
+.text-lg  { font-size: 18px; }
+.text-xl  { font-size: 24px; }
+
+.tracking-wide  { letter-spacing: 2px; }
+.uppercase      { text-transform: uppercase; }
+
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+
+.p-sm { padding: var(--space-sm); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: var(--space-lg) 0;
+}
+
+/* Stats inline */
+.stats-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 8px 0 4px;
+  font-size: 12px;
+  color: var(--text2);
+}
+.stat-inline strong { color: var(--sec-light-blue); font-family: var(--font-mono); }
+.formulario-tag {
+  font-size: 10px;
+  background: rgba(141, 95, 255, 0.12);
+  border: 1px solid rgba(141, 95, 255, 0.28);
+  color: var(--sec-light-purple);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  margin-left: 8px;
+  vertical-align: middle;
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+}

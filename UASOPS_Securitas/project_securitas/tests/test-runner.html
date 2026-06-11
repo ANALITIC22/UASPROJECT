@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>UASOPS — Test Runner</title>
+  <style>
+    body { font-family: monospace; background: #050a14; color: #c8ddf0; padding: 24px; }
+    h1   { color: #00d4ff; font-size: 18px; margin-bottom: 16px; }
+    p    { color: #6a8aaa; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>🧪 UASOPS Test Runner</h1>
+  <p>Abre la <strong>consola del navegador</strong> (F12) para ver los resultados de los tests.</p>
+
+  <!-- Dependencias requeridas por los tests -->
+  <script src="../config/app.config.js"></script>
+  <script src="../src/utils/calculator.js"></script>
+  <script src="../src/utils/formatter.js"></script>
+  <script src="../src/utils/parser.js"></script>
+
+  <!-- Tests -->
+  <script src="calculator.test.js"></script>
+  <script src="parser.test.js"></script>
+  <script src="formatter.test.js"></script>
+</body>
+</html>
